@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>EditSite</title>
+
+    <style>
+        h1 {
+            font-size: 30px;
+        }
+
+        .section {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body bgcolor="#fffcf7">
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <br>
+                    <h1 class="title">Edit Your Site</h1>
+                    <div class="box">
+                        <form action="/edit/<%=site._id%>" method="POST">
+                            <div class="field">
+                                <label class="label">Name</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="name of your site" name="site[name]"
+                                        value="<%= site.name %>">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Location</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input class="input" type="text" placeholder="location of your site"
+                                        name="site[location]" value="<%= site.location%>">
+                                    <span class="icon is-small is-left">
+                                        <i class='fa-solid fa-location-dot'></i>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Description</label>
+                                <div class="control">
+                                    <textarea class="textarea" placeholder="Description of your site"
+                                        name="site[description]" value=""><%= site.description%></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Select Category</label>
+                                <div class="select">
+                                    <select name="site[category]">
+                                        <option value="CAMPING" <%=site.category=='CAMPING' ? 'selected' : '' %>>Camping
+                                        </option>
+                                        <option value="TREEHOUSE" <%=site.category=='TREEHOUSE' ? 'selected' : '' %>
+                                            >Treehouse</option>
+                                        <option value="LAKEFRONT" <%=site.category=='LAKEFRONT' ? 'selected' : '' %>
+                                            >Lakefront</option>
+                                        <option value="OMG" <%=site.category=='OMG' ? 'selected' : '' %>
+                                            >OMG</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class=" field is-grouped">
+                                <div class="control">
+                                    <button class="button is-link">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</body>
+
+</html>

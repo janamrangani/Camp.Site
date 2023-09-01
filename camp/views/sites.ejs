@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="/sites.css">
+    <title>
+        <%= category %>
+    </title>
+</head>
+
+<body bgcolor="#fffcf7">
+    <%- include('../components/navbar'); %>
+        <div class="container">
+            <br>
+            <h1>
+                <%= category %>
+            </h1>
+            <hr>
+            <% for (let site of sites) {%>
+                <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box imag">
+                            <img src="<%= site.photoUrl %>">
+                        </article>
+                    </div>
+                    <div class="tile is-parent is-8">
+                        <article class="tile is-child box">
+                            <p class="title">
+                                <%=site.name%>
+                            </p>
+                            <p class="subtitle">
+                                <%=site.location%>
+                                    <u>- Submitted by <%= site.author.username %></u>
+                            </p>
+                            <div class="content">
+                                <p>
+                                    <%=site.description%>
+                                </p>
+                            </div>
+                            <% if(currentUser && site.author.equals(currentUser)) {%>
+                                <div class="buttons">
+                                    <a href="/edit/<%= site._id%>" class="button is-info mr-5">Edit</a>
+                                    <form action="/delete/<%=site._id%>" method="POST">
+                                        <button class="button is-danger">Delete</button>
+                                    </form>
+                                </div>
+                                <% } %>
+                        </article>
+                    </div>
+                </div>
+                <%}%>
+
+        </div>
+</body>
+
+</html>

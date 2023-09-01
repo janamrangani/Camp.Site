@@ -1,0 +1,64 @@
+<header>
+    <nav class="navbar is-fixed-top" style="background-color: #fffcf7" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item has-text-weight-bold" href="/">
+                CAMP.SITE
+            </a>
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="true"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/addMySite">
+                    AddMySite
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Destinations
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="/categories/treehouse">
+                            Treehouses
+                        </a>
+                        <a class="navbar-item" href="/categories/camping">
+                            Camping
+                        </a>
+                        <a class="navbar-item" href="/categories/lakefront">
+                            Lakefront
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="/categories/OMG">
+                            OMG!! SPOTS....
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <% if(!currentUser) {%>
+                            <a class="button is-success" href="/signup">
+                                <strong>Sign up</strong>
+                            </a>
+                            <a class="button is-light" href="/login">
+                                Log in
+                            </a>
+                            <% } else { %>
+                                <a class="button is-info" href="/logout">
+                                    Log out
+                                </a>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

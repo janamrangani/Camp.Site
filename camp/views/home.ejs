@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Camping Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Raleway:wght@800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body bgcolor="#fffcf7">
+
+    <%- include('../components/navbar') %>
+        <div class="hero">
+            <div class="container">
+                <%= success %>
+                    <div class="hero-text">
+                        <h1>Welcome to our website</h1>
+                        <br>
+                        <p>Discover the beauty of nature and enjoy the great outdoors with us</p>
+                        <br>
+                        <br>
+                        <a href="#explore" class="btn has-text-primary">EXPLORE</a>
+                    </div>
+            </div>
+        </div>
+
+        <section id="explore" class="about-us">
+            <div class="dummy-div"></div>
+            <div class="container">
+                <h2>About Us</h2>
+                <br>
+                <p>We are a group of nature enthusiasts who want to share the joy of camping with everyone. We offer
+                    a
+                    variety of camping experiences that cater to different needs and preferences. Whether you prefer
+                    a
+                    rustic camping trip or a more luxurious glamping experience, we have something for you.</p>
+                <br>
+                <hr>
+            </div>
+        </section>
+        <section class="destinations">
+            <div class="container">
+                <br>
+                <h2>Destinations</h2>
+                <br>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="columns">
+                <% for(let destination of destinations){%>
+                    <div class="column">
+                        <a href="categories/<%=destination.category%>">
+                            <div class="card destination-card">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="<%= destination.imageURL%>" alt="<%=destination.title%>">
+                                    </figure>
+                                </div>
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p class="title is-4">
+                                                <%=destination.title%>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <%=destination.description%>
+                                            <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <%}%>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+
+                // Check for click events on the navbar burger icon
+                $(".navbar-burger").click(function () {
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    $(".navbar-burger").toggleClass("is-active");
+                    $(".navbar-menu").toggleClass("is-active");
+
+                });
+            });
+        </script>
+</body>
+
+</html>

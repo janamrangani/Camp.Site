@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>signup</title>
+
+    <style>
+        .section {
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body bgcolor="#fffcf7">
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <h1 class="title">Sign up</h1>
+                    <div class="box">
+                        <form action="/signup" method="POST" class="validated-form" novalidate>
+                            <div class="field">
+                                <label class="label" for="username">Userame</label>
+                                <div class="control">
+                                    <input class="input" type="text" id="username" name="username"
+                                        placeholder="Username" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="email">Email</label>
+                                <div class="control">
+                                    <input class="input" type="email" id="email" data-validation="email not-blank"
+                                        name="email" placeholder="Your email" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="password">Password</label>
+                                <div class="control">
+                                    <input class="input" type="password" id="password" name="password"
+                                        placeholder="Your password" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary">Sign up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <%= error %>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+h1 {
+    font-size: 35px;
+}
+
+.container {
+    margin-top: 56px;
+}
+
+p {
+    font-size: 25px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.imag {
+    padding: 0;
+    overflow: hidden;
+}
